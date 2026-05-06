@@ -3,22 +3,23 @@ import pandas as pd
 # 문제 1: 데이터프레임 생성과 정보 확인
 x = [['iPhone', 120, 'Apple'], ['Galaxy', 110, 'Samsung'], ['Pixel', 90, 'Google']]
 # pd.DataFrame( 자료 , columns=[ 열이름1 , 열이름2 , 열이름3] )
-df = pd.DataFrame( x , columns=[ 'Model', 'Price', 'Company'] )
-df.info() # 데이터의 전체적인 요약 정보(인덱스, 컬럼, 데이터 타입 등)를 한 번에 출력하는 메서드를 실행하시오.
+df = pd.DataFrame( x, columns=['Model', 'Price', 'Company'] )
+df.info()
+print( df )
 
 # 문제 2: iloc와 loc를 이용한 데이터 추출
 data = pd.DataFrame(
     {'Name': ['Ant', 'Bee', 'Cat', 'Dog'],'Age': [24, 27, 22, 32],'City': ['Seoul', 'Busan', 'Incheon', 'Daejeon']}, 
     index=['A', 'B', 'C', 'D'])
 
-result = data.loc[ [ 'B' , 'C' ] , ['Name','Age'] ] # .loc[ [행라벨], [열라벨] ]
+result = data.loc[ [ 'B' , 'C' ] , ['Name','Age'] ]
 result2 = data.iloc[ 1 , 2 ]
 
 # 문제 3: 컬럼 추가와 조건부 값 수정
 data = pd.DataFrame({'Name': ['Ant', 'Bee', 'Cat'], 'Age': [24, 27, 22]})
 
-data['Score'] = [85, 90, 95] # 아래 데이터에서 'Score' 컬럼을 [85, 90, 95]로 추가한 뒤, 
-data.loc[ data['Score'] >= 90 , 'Name' ] = 'MVP' # x.loc[ 조건식 , 새로운/수정할열 ] = 새로운값
+data['Score'] = [85, 90, 95]
+data.loc[ data['Score'] >= 90 , 'Name' ] = 'MVP'
 
 # 문제 4: 다중 조건을 활용한 행 필터링
 data = pd.DataFrame({'Name': ['Ant', 'Bee', 'Cat', 'Dog'],'Age': [24, 27, 22, 32],'Score': [85, 90, 88, 76]})
