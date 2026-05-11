@@ -49,6 +49,8 @@ async def joongnaRun():
         
             item = { "제목": title, "가격" : price }
             print( item )
+            
+        await browser.close()
     
         
         
